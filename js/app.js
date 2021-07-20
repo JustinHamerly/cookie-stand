@@ -1,7 +1,5 @@
-const hoursArray = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'];
-
 const Seattle = {
-  locationName: 'Seattle',
+  locationName: 'SEATTLE',
   minCustHour: 23,
   maxCustHour: 65,
   avgPerCust: 6.3,
@@ -25,13 +23,8 @@ const Seattle = {
   },
 };
 
-Seattle.genCustPerHour();
-Seattle.genCookiesPerHour();
-Seattle.genStoreResults();
-console.log(Seattle);
-
 const Tokyo = {
-  locationName: 'Tokyo',
+  locationName: 'TOKYO',
   minCustHour: 3,
   maxCustHour: 24,
   avgPerCust: 1.2,
@@ -55,13 +48,8 @@ const Tokyo = {
   },
 };
 
-Tokyo.genCustPerHour();
-Tokyo.genCookiesPerHour();
-Tokyo.genStoreResults();
-console.log(Tokyo);
-
 const Dubai = {
-  locationName: 'Dubai',
+  locationName: 'DUBAI',
   minCustHour: 11,
   maxCustHour: 38,
   avgPerCust: 3.7,
@@ -85,13 +73,8 @@ const Dubai = {
   },
 };
 
-Dubai.genCustPerHour();
-Dubai.genCookiesPerHour();
-Dubai.genStoreResults();
-console.log(Dubai);
-
 const Paris = {
-  locationName: 'Paris',
+  locationName: 'PARIS',
   minCustHour: 20,
   maxCustHour: 38,
   avgPerCust: 2.3,
@@ -115,13 +98,8 @@ const Paris = {
   },
 };
 
-Paris.genCustPerHour();
-Paris.genCookiesPerHour();
-Paris.genStoreResults();
-console.log(Paris);
-
 const Lima = {
-  locationName: 'Lima',
+  locationName: 'LIMA',
   minCustHour: 2,
   maxCustHour: 16,
   avgPerCust: 4.6,
@@ -145,22 +123,23 @@ const Lima = {
   },
 };
 
-Lima.genCustPerHour();
-Lima.genCookiesPerHour();
-Lima.genStoreResults();
-console.log(Lima);
-
 function randCustPerHour(a, b) {
   let customersPerHour = Math.floor(Math.random() * (b - a + 1) + a);
   return customersPerHour;
 }
 
-
 const locArray = [Seattle, Tokyo, Dubai, Paris, Lima];
+
+const hoursArray = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'];
 
 const locDivElement = document.getElementById('locations');
 
 function renderStore(location) {
+  location.genCustPerHour();
+  location.genCookiesPerHour();
+  location.genStoreResults();
+  console.log(location);
+
   let articleElem = document.createElement('article');
   locDivElement.appendChild(articleElem);
   let h3Elem = document.createElement('h3');
