@@ -12,35 +12,26 @@ h1 {
 }
 
 #locations h2{
-  font-size: large;
+  font-size: x-large;
+  text-align: center;
   margin: 10px;
   border: 0px;
   padding: 10px;
-  background-color: #753c54;
-  color: #FFFFFF;
+  background-color: rgb(248, 241, 244);
+  color: #753c54;
   border-radius: 20px;
 }
 
-#locations h3{
+#locations {
   font-size: large;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   border: 0px;
   padding: 5px;
   background-color: #e9d5f1;
-  color: #352d38;
-  text-align: center;
+  text-align: left;
   border-radius: 20px;
-}
-
-#locations article {
-  font-size: large;
-  float: left;
-  margin: 10px;
-  border: 0px;
-  padding: 10px;
-  background-color: #753c54;
-  color: #FFFFFF;
-  border-radius: 20px;
+  width: 1200px;
 }
 
 div {
@@ -49,29 +40,43 @@ div {
   border: 0px;
   padding: 10px;
   border-radius: 20px;
+  width: auto;
 }
 
 table {
-  margin: 10px;
-  border: 0px;
-  padding: 10px;
+  margin: 0px;
   background-color: #753c54;
   color: #FFFFFF;
   height:100%;
   border-radius: 20px;
 }
 
-thead {
+article {
+  margin: 10px;
+  margin-top: 30px;
+  border: 0px;
   padding: 10px;
+  background-color: #753c54;
+  color: #FFFFFF;
+  height:100%;
+  border-radius: 20px;
+  width: auto;
+  float: left
 }
-th {
+
+table th {
   text-align: center;
-  width: 80px;
-  margin: 5px;
+  width: 200px;
+  margin: 10px;
   border: none;
   padding: 5px;
+  align-items: center;
 }
 
 td {
   text-align: center;
+  width: auto;
+  background-color: #e9d5f1;
+  color: #753c54;
+  border-radius: 20px;
 }
