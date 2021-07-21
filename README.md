@@ -10,4 +10,4 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 * 
 
 ### Reflections and Comments
-* this was hard
+* building object literals
