@@ -29,7 +29,7 @@ StoreLocation.prototype.renderRow = function(tbodyElem){
   for (let i=0; i < this.cookiesPerHour.length; i++){
     newElement('td', trElem, this.cookiesPerHour[i]);
   }
-  newElement('td', trElem, this.totalCookies);
+  newElement('th', trElem, this.totalCookies);
 };
 
 StoreLocation.prototype.genData = function(){
@@ -63,9 +63,9 @@ function renderTable(){
   const trElem = newElement('tr', theadElem, null);
   newElement('th', trElem, null);
   for (let i=0; i < hoursArray.length; i++){
-    newElement('td', trElem, hoursArray[i]);
+    newElement('th', trElem, hoursArray[i]);
   }
-  newElement('th', trElem, 'DAILY LOCATION TOTAL');
+  newElement('th', trElem, 'DAILY TOTALS');
 
   const tbodyElem = newElement('tbody', tableElem, null);
   for (let i=0; i < locArray.length; i++){
@@ -88,15 +88,15 @@ function getTableFooter(tableElem){
   }
 }
 
-function renderStore(location) {
-  console.log(location);
-  const articleElem = newElement('article', locDivElement, null);
-  newElement('h3', articleElem, location.locationName);
-  const ulElem = newElement('ul', articleElem, null);
-  for (let i = 0; i < location.storeResults.length; i++){
-    newElement('li', ulElem, location.storeResults[i]);
-  }
-}
+// function renderStore(location) {
+//   console.log(location);
+//   const articleElem = newElement('article', locDivElement, null);
+//   newElement('h3', articleElem, location.locationName);
+//   const ulElem = newElement('ul', articleElem, null);
+//   for (let i = 0; i < location.storeResults.length; i++){
+//     newElement('li', ulElem, location.storeResults[i]);
+//   }
+// }
 
 // -------------------- CALL FUNCTIONS --------------------//
 for (let i = 0; i < locArray.length; i++){
@@ -105,8 +105,8 @@ for (let i = 0; i < locArray.length; i++){
 
 renderTable();
 
-for (let i = 0; i < locArray.length; i++){
-  renderStore(locArray[i]);
-}
+// for (let i = 0; i < locArray.length; i++){
+//   renderStore(locArray[i]);
+// }
 
 
