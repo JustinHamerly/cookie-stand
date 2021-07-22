@@ -24,6 +24,27 @@
         <h2>LOCATIONS AND SALES</h2>
         
       </div>
+      <section>
+        <h2>ADD A STORE</h2>
+          <form id="addStoreForm">
+            <fieldset>
+              <legend>STORE INFO</legend>
+              <label>Store Location
+                <input name="locationName" type="text"/>
+              </label>
+              <label>Minimum Customers per Hour
+                <input name="minCustHour" type="number"/>
+              </label>
+              <label>Maximum Customers per Hour
+                <input name="maxCustHour" type="number"/>
+              </label>
+              <label>Average Cookies per Customer
+                <input name="avgPerCust" type="number"/>
+              </label>
+            </fieldset>
+            <button type="submit">Add New Store</button>
+          </form>
+      </section>
     </main>
     <footer>
       <script src="./js/app.js"></script>

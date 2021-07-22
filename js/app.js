@@ -1,4 +1,4 @@
-// -------------------- GLOBAL FUNCTIONS --------------------//
+// -------------------- GLOBAL VARIABLES --------------------//
 const Seattle = new StoreLocation('SEATTLE', 23, 65, 6.3);
 const Tokyo = new StoreLocation('TOKYO', 3, 24, 1.2);
 const Dubai = new StoreLocation('DUBAI', 11, 38, 3.7);
@@ -11,6 +11,8 @@ const hoursArray = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '
 
 const locDivElement = document.getElementById('locations');
 
+const formElem = document.getElementById('addStoreForm');
+
 // -------------------- CONSTRUCTOR FUNCTION --------------------//
 function StoreLocation(locationName, minCustHour, maxCustHour, avgPerCust){
   this.locationName = locationName;
@@ -22,7 +24,7 @@ function StoreLocation(locationName, minCustHour, maxCustHour, avgPerCust){
   this.storeResults = [];
 }
 
-// -------------------- CONSTUCTOR TOOLS --------------------//
+// -------------------- CONSTUCTOR TOOLS / PROTOTYPE METHODS --------------------//
 StoreLocation.prototype.renderRow = function(tbodyElem){
   const trElem = newElement('tr', tbodyElem, null);
   newElement('th', trElem, this.locationName);
@@ -79,15 +81,35 @@ function getTableFooter(tableElem){
   const tfootElem = newElement('tfoot', tableElem, null);
   const trElem2 = newElement('tr', tfootElem, null);
   newElement('th', trElem2, 'HOURLY TOTAL');
+  let dailyTotal=0;
   for(let i = 0; i < hoursArray.length; i++){
     let hourlyTotal = 0;
     for(let j = 0; j < locArray.length; j++){
       hourlyTotal += locArray[j].cookiesPerHour[i];
     }
     newElement('th', trElem2, hourlyTotal);
+    dailyTotal += hourlyTotal;
   }
+  newElement('th', trElem2, dailyTotal);
 }
 
+function handleSubmit(e){
+  e.preventDefault();
+  console.log(e);
+
+  let locationName = e.target.locationName.value;
+  let minCustHour = parseInt(e.target.minCustHour.value);
+  let maxCustHour = parseInt(e.target.maxCustHour.value);
+  let avgPerCust = parseInt(e.target.avgPerCust.value);
+
+  let newStore = new StoreLocation(locationName, minCustHour, maxCustHour, avgPerCust);
+
+  locArray.push(newStore);
+  newStore.genData();
+  newStore.renderRow();
+}
+
+formElem.addEventListener('submit', handleSubmit);
 // function renderStore(location) {
 //   console.log(location);
 //   const articleElem = newElement('article', locDivElement, null);
