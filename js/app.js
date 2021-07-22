@@ -6,11 +6,8 @@ const Paris = new StoreLocation('PARIS', 20, 38, 2.3);
 const Lima = new StoreLocation('LIMA', 2, 16, 4.6);
 
 const locArray = [Seattle, Tokyo, Dubai, Paris, Lima];
-
 const hoursArray = ['6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'];
-
 const locDivElement = document.getElementById('locations');
-
 const formElem = document.getElementById('addStoreForm');
 
 // -------------------- CONSTRUCTOR FUNCTION --------------------//
@@ -61,6 +58,7 @@ function newElement(tagname, parent, text){
 
 function renderTable(){
   const tableElem = newElement('table', locDivElement, null);
+  tableElem.id = 'salestable';
   const theadElem = newElement('thead', tableElem, null);
   const trElem = newElement('tr', theadElem, null);
   newElement('th', trElem, null);
@@ -70,6 +68,7 @@ function renderTable(){
   newElement('th', trElem, 'DAILY TOTALS');
 
   const tbodyElem = newElement('tbody', tableElem, null);
+  tbodyElem.id = 'storerows';
   for (let i=0; i < locArray.length; i++){
     locArray[i].renderRow(tbodyElem);
   }
@@ -106,7 +105,11 @@ function handleSubmit(e){
 
   locArray.push(newStore);
   newStore.genData();
-  newStore.renderRow();
+  const tableBodyElem = document.getElementById('storerows');
+  newStore.renderRow(tableBodyElem);
+  const tableElem = document.getElementById('salestable');
+  getTableFooter(tableElem);
+  tableElem.removeChild(tableElem.lastChild.previousSibling);
 }
 
 formElem.addEventListener('submit', handleSubmit);
