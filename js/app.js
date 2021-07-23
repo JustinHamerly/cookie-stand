@@ -1,3 +1,5 @@
+'use strict';
+
 // -------------------- GLOBAL VARIABLES --------------------//
 const Seattle = new StoreLocation('SEATTLE', 23, 65, 6.3);
 const Tokyo = new StoreLocation('TOKYO', 3, 24, 1.2);
@@ -113,6 +115,7 @@ function handleSubmit(e){
 }
 
 formElem.addEventListener('submit', handleSubmit);
+
 // function renderStore(location) {
 //   console.log(location);
 //   const articleElem = newElement('article', locDivElement, null);
